@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Crosswalk Sample App</title>
+    <title>Video Isue</title>
   </head>
   <body>
-    <p>This is a Crosswalk Sample Application</p>
+    <video id="video"></video>
+
+    <script>
+      var PLAYBACK_TIME = 1 * 1000;
+      var videoUrls = [
+        '1.mp4',
+        // '2.mp4',
+        '3.mp4'
+      ];
+      var video = document.getElementById('video');
+
+      function play(file) {
+        video.src = 'vid/' + file;
+        video.play();
+      }
+
+      function loop() {
+        var fileToPlay = videoUrls.shift();
+        videoUrls.push(fileToPlay);
+        
+        console.log('Playing video ' + fileToPlay);
+        play(fileToPlay);
+        setTimeout(loop, PLAYBACK_TIME);
+      }
+
+      loop();
+    </script>
   </body>
 </html>
+
