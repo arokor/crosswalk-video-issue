@@ -26,6 +26,7 @@ public class VideoActivity extends XWalkRuntimeActivityBase {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setRemoteDebugging(true);
         super.onCreate(savedInstanceState);
     }
 
